@@ -1,0 +1,89 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: registrations
+    // Fields:
+    //   - fullName: string (required, 2-100 chars)
+    //   - phone: string (required, 10 digits)
+    //   - amount: string (required)
+    //   - city: string (required, 2-50 chars)
+    //   - referral: string (optional)
+    //   - createdAt: timestamp (required)
+    //
+    // Collection: metrics
+    // Fields:
+    //   - label: string (required)
+    //   - value: string (required)
+    //   - sub: string (optional)
+    //   - updatedAt: timestamp (required)
+    //
+    // Collection: updates
+    // Fields:
+    //   - day: number (required)
+    //   - title: string (required)
+    //   - description: string (required)
+    //   - date: string (required, ISO date)
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && 
+        (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' ||
+         (request.auth.token.email == "subashmubhar@gmail.com" && request.auth.token.email_verified == true));
+    }
+
+    function isValidRegistration(data) {
+      return data.fullName is string && data.fullName.size() >= 2 && data.fullName.size() <= 100 &&
+             data.phone is string && data.phone.matches("^[0-9]{10}$") &&
+             data.amount is string &&
+             data.city is string && data.city.size() >= 2 && data.city.size() <= 50 &&
+             data.createdAt is timestamp;
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    match /registrations/{registrationId} {
+      // Anyone can register interest (public write)
+      // In a real app, you might want to rate limit this or require auth
+      allow create: if isValidRegistration(request.resource.data);
+      
+      // Only admins can read or modify registrations
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /metrics/{metricId} {
+      // Publicly readable for transparency
+      allow read: if true;
+      
+      // Only admins can update metrics
+      allow write: if isAdmin();
+    }
+
+    match /updates/{updateId} {
+      // Publicly readable for transparency
+      allow read: if true;
+      
+      // Only admins can post updates
+      allow write: if isAdmin();
+    }
+
+    match /users/{userId} {
+      allow read: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
+      allow write: if isAdmin();
+    }
+  }
+}

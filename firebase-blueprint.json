@@ -1,0 +1,75 @@
+{
+  "entities": {
+    "InterestRegistration": {
+      "title": "Interest Registration",
+      "description": "Stores user interest in contributing to the expansion.",
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "description": "Full name of the potential contributor"
+        },
+        "phone": {
+          "type": "string",
+          "description": "WhatsApp phone number"
+        },
+        "amount": {
+          "type": "string",
+          "description": "Selected contribution amount"
+        },
+        "city": {
+          "type": "string",
+          "description": "City of the potential contributor"
+        },
+        "referral": {
+          "type": "string",
+          "description": "How they heard about us"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of registration"
+        }
+      },
+      "required": ["fullName", "phone", "amount", "city", "createdAt"]
+    },
+    "BusinessMetric": {
+      "title": "Business Metric",
+      "description": "Real-time operational metrics for the transparency dashboard.",
+      "type": "object",
+      "properties": {
+        "label": { "type": "string" },
+        "value": { "type": "string" },
+        "sub": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["label", "value", "updatedAt"]
+    },
+    "Update": {
+      "title": "Operational Update",
+      "description": "Daily updates for the transparency feed.",
+      "type": "object",
+      "properties": {
+        "day": { "type": "number" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "date": { "type": "string", "format": "date" }
+      },
+      "required": ["day", "title", "description", "date"]
+    }
+  },
+  "firestore": {
+    "/registrations/{registrationId}": {
+      "schema": "InterestRegistration",
+      "description": "Collection of user interest registrations."
+    },
+    "/metrics/{metricId}": {
+      "schema": "BusinessMetric",
+      "description": "Collection of live business metrics."
+    },
+    "/updates/{updateId}": {
+      "schema": "Update",
+      "description": "Collection of operational updates."
+    }
+  }
+}
