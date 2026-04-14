@@ -1,18 +1,19 @@
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import workImage from "../../../asstes/work.svg";
 
 export default function HowItWorks() {
   return (
     <section id="how-it-works" className="py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+      <div className="container mx-auto px-4 md:px-8 max-w-[1440px]">
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-16">
           <div className="max-w-2xl">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -150 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ 
+              transition={{
                 type: "spring",
                 stiffness: 300,
                 damping: 12,
@@ -27,8 +28,8 @@ export default function HowItWorks() {
               </div>
               <span className="text-sm font-medium text-gray-600 tracking-wide">How It Works</span>
             </motion.div>
-            
-            <motion.h2 
+
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -39,7 +40,7 @@ export default function HowItWorks() {
             </motion.h2>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -59,7 +60,7 @@ export default function HowItWorks() {
         </div>
 
         {/* Image Container */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -68,16 +69,16 @@ export default function HowItWorks() {
         >
           {/* Background decorative elements for parallax effect */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <motion.div 
-              animate={{ 
+            <motion.div
+              animate={{
                 y: [0, -20, 0],
                 x: [0, 10, 0]
               }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -top-32 -right-32 w-[30rem] h-[30rem] bg-[#ffe600]/10 rounded-full blur-3xl"
             />
-            <motion.div 
-              animate={{ 
+            <motion.div
+              animate={{
                 y: [0, 20, 0],
                 x: [0, -10, 0]
               }}
@@ -87,12 +88,12 @@ export default function HowItWorks() {
           </div>
 
           {/* The Image */}
-          <motion.img 
+          <motion.img
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
             // Replace this src with the actual URL of your uploaded rocket image
-            src="https://placehold.co/1200x800/ffffff/1a1a1a?text=Replace+with+Your+Rocket+Image" 
-            alt="Financial Journey Steps" 
+            src={workImage}
+            alt="Financial Journey Steps"
             className="w-full max-w-5xl h-auto object-contain relative z-10 mix-blend-multiply"
             referrerPolicy="no-referrer"
           />

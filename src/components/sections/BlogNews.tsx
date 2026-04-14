@@ -28,15 +28,15 @@ const blogs = [
 export default function BlogNews() {
   return (
     <section id="news" className="py-24 bg-white">
-      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+      <div className=" mx-auto px-4 md:px-8 max-w-[1400px]">
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-16">
           <div className="max-w-2xl">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -150 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ 
+              transition={{
                 type: "spring",
                 stiffness: 300,
                 damping: 12,
@@ -51,19 +51,19 @@ export default function BlogNews() {
               </div>
               <span className="text-sm font-medium text-gray-600 tracking-wide">News & Articles</span>
             </motion.div>
-            
-            <motion.h2 
+
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-5xl font-bold text-[#1a1a1a] leading-tight"
             >
-              Get Our Market Insights. News<br />And Financial Advice
+              Get Our Market Insights.<br />News And Financial Advice
             </motion.h2>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -90,8 +90,8 @@ export default function BlogNews() {
             >
               {/* Image */}
               <div className="relative w-full aspect-[4/3] overflow-hidden mb-8 bg-gray-100">
-                <motion.img 
-                  src={blog.image} 
+                <motion.img
+                  src={blog.image}
                   alt={blog.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"

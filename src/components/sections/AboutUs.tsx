@@ -27,24 +27,24 @@ const features = [
 export default function AboutUs() {
   return (
     <section id="about" className="py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+      <div className="container mx-auto px-4 md:px-8 max-w-[1340px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          
+
           {/* Left: Image Composition */}
           <div className="relative">
             {/* Background decorative blur */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#ffe600]/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="relative rounded-[2rem] overflow-hidden shadow-2xl z-10 aspect-[4/5] md:aspect-square lg:aspect-[4/5]"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop" 
-                alt="Appliance Repair Technician" 
+              <img
+                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop"
+                alt="Appliance Repair Technician"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -52,7 +52,7 @@ export default function AboutUs() {
             </motion.div>
 
             {/* Floating Stats Card */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30, x: 30 }}
               whileInView={{ opacity: 1, y: 0, x: 0 }}
               viewport={{ once: true }}
@@ -65,7 +65,7 @@ export default function AboutUs() {
             </motion.div>
 
             {/* Floating Parts Card */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: -30, x: -30 }}
               whileInView={{ opacity: 1, y: 0, x: 0 }}
               viewport={{ once: true }}
@@ -84,11 +84,11 @@ export default function AboutUs() {
 
           {/* Right: Content */}
           <div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ 
+              transition={{
                 type: "spring",
                 stiffness: 300,
                 damping: 12,
@@ -103,8 +103,8 @@ export default function AboutUs() {
               </div>
               <span className="text-sm font-medium text-gray-600 tracking-wide uppercase">About Us</span>
             </motion.div>
-            
-            <motion.h2 
+
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -114,7 +114,7 @@ export default function AboutUs() {
               Your Premier Home Appliance & Spare Parts Hub
             </motion.h2>
 
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -128,7 +128,7 @@ export default function AboutUs() {
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

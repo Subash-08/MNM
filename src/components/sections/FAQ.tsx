@@ -11,13 +11,13 @@ import { MessageCircle } from "lucide-react";
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-24 bg-white">
+    <section id="faq" className=" bg-white">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
-          
+
           {/* Left Column - Header & CTA */}
           <div className="lg:w-1/3 lg:sticky lg:top-32">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -30,8 +30,8 @@ export default function FAQ() {
               </div>
               <span className="text-sm font-medium text-gray-600 tracking-wide uppercase">FAQ</span>
             </motion.div>
-            
-            <motion.h2 
+
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -41,7 +41,7 @@ export default function FAQ() {
               Frequently Asked Questions
             </motion.h2>
 
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -51,7 +51,7 @@ export default function FAQ() {
               We understand you have questions. We've answered the most common ones here to help you make an informed decision.
             </motion.p>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -80,7 +80,7 @@ export default function FAQ() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
-                  <AccordionItem 
+                  <AccordionItem
                     value={`item-${i}`}
                     className="border border-gray-200 rounded-2xl px-6 md:px-8 bg-white data-[state=open]:border-[#ffe600] data-[state=open]:shadow-md transition-all duration-300"
                   >
@@ -94,8 +94,8 @@ export default function FAQ() {
                 </motion.div>
               ))}
             </Accordion>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}

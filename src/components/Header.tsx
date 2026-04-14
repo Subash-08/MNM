@@ -29,7 +29,7 @@ export default function Header({ onRegisterClick }: { onRegisterClick: () => voi
           <div className="bg-[#1a1a1a] text-white p-2 rounded-xl">
             <Layers className="w-5 h-5" />
           </div>
-          <span className="text-xl font-bold text-[#1a1a1a] tracking-tight">Finora</span>
+          <span className="text-xl font-bold text-[#1a1a1a] tracking-tight">MNM</span>
         </div>
 
         {/* Desktop Nav */}
@@ -58,10 +58,10 @@ export default function Header({ onRegisterClick }: { onRegisterClick: () => voi
       {isMenuOpen && (
         <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-100 p-4 shadow-xl flex flex-col gap-4 animate-in slide-in-from-top duration-300">
           {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
-              className="text-lg font-medium text-gray-800 py-2 border-b border-gray-50" 
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-lg font-medium text-gray-800 py-2 border-b border-gray-50"
               onClick={() => setIsMenuOpen(false)}
             >
               {link.name}

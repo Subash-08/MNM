@@ -68,7 +68,7 @@ export default function WorkingProcess() {
       <div className="container mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -81,20 +81,20 @@ export default function WorkingProcess() {
             </div>
             <span className="text-sm font-medium text-gray-600 tracking-wide uppercase">Working Process</span>
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-[#1a1a1a] leading-tight max-w-2xl"
+            className="text-3xl md:text-4xl font-bold text-[#1a1a1a] leading-tight max-w-2xl"
           >
             Our Step-By-Step Investment Plan
           </motion.h2>
         </div>
 
         {/* Tabs and Content Container */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -106,42 +106,39 @@ export default function WorkingProcess() {
             {steps.map((step, index) => {
               const isActive = activeTab === index;
               const Icon = step.icon;
-              
+
               return (
                 <button
                   key={step.id}
                   onClick={() => handleTabClick(index)}
-                  className={`relative flex-1 min-w-[200px] flex items-center gap-3 p-4 rounded-xl overflow-hidden transition-all duration-300 ${
-                    isActive ? "bg-white shadow-sm" : "bg-transparent hover:bg-gray-50"
-                  }`}
+                  className={`relative flex-1 min-w-[200px] flex items-center gap-3 p-4 rounded-xl overflow-hidden transition-all duration-300 ${isActive ? "bg-white shadow-sm" : "bg-transparent hover:bg-gray-50"
+                    }`}
                 >
                   {/* Progress Background */}
                   {isActive && (
-                    <motion.div 
+                    <motion.div
                       className="absolute left-0 top-0 bottom-0 bg-[#fff9d6] z-0"
                       initial={{ width: "0%" }}
                       animate={{ width: "100%" }}
                       transition={{ duration: 5, ease: "linear" }}
                     />
                   )}
-                  
+
                   {/* Tab Content */}
                   <div className="relative z-10 flex items-center gap-3 w-full">
-                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${
-                      isActive ? "bg-[#ffe600]" : "bg-gray-100"
-                    }`}>
+                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${isActive ? "bg-[#ffe600]" : "bg-gray-100"
+                      }`}>
                       <Icon className="w-5 h-5 text-black" />
                     </div>
-                    <span className={`font-medium text-sm md:text-base text-left ${
-                      isActive ? "text-black" : "text-gray-500"
-                    }`}>
+                    <span className={`font-medium text-sm md:text-base text-left ${isActive ? "text-black" : "text-gray-500"
+                      }`}>
                       {step.title}
                     </span>
                   </div>
-                  
+
                   {/* Active Border Indicator */}
                   {isActive && (
-                    <motion.div 
+                    <motion.div
                       layoutId="activeTabBorder"
                       className="absolute inset-0 border-2 border-[#ffe600] rounded-xl pointer-events-none z-20"
                       initial={false}
@@ -173,7 +170,7 @@ export default function WorkingProcess() {
                       <div className="absolute inset-0 border border-[#ffe600]/50 rounded-3xl transform translate-x-2 translate-y-2 -z-10"></div>
                     </div>
                   </div>
-                  
+
                   <h3 className="text-3xl md:text-4xl font-semibold text-[#1a1a1a] mb-6">
                     {steps[activeTab].title}
                   </h3>
@@ -185,11 +182,11 @@ export default function WorkingProcess() {
                 {/* Image Content */}
                 <div className="flex-1 p-4 md:p-8">
                   <div className="w-full h-full min-h-[300px] rounded-2xl overflow-hidden relative group">
-                    <motion.img 
+                    <motion.img
                       initial={{ scale: 1.1 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.8 }}
-                      src={steps[activeTab].image} 
+                      src={steps[activeTab].image}
                       alt={steps[activeTab].title}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       referrerPolicy="no-referrer"

@@ -28,27 +28,27 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header onRegisterClick={handleRegisterClick} />
-      
-      <main className="flex-grow">
+    <div>
+      < Header onRegisterClick={handleRegisterClick} />
+
+      <main>
         <Hero />
         <Partners />
         <AboutUs />
-        <WorkingProcess />
         <HowItWorks />
         <Services />
+        <WorkingProcess />
         <TransparencyDashboard />
         <SocialProof />
         <BlogNews />
         <FAQ />
-        <ContactCTA />
       </main>
 
+      <ContactCTA />
       <Footer />
 
       <RegistrationForm open={isFormOpen} onOpenChange={setIsFormOpen} />
       <Toaster position="top-center" richColors />
-    </div>
+    </div >
   );
 }
