@@ -13,12 +13,12 @@ export default function Header({ onRegisterClick }: { onRegisterClick: () => voi
   }, []);
 
   const navLinks = [
-    { name: "Process", href: "#process" },
+    { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
-    { name: "Dashboard", href: "#dashboard" },
+    { name: "Process", href: "#process" },
     { name: "Testimonials", href: "#testimonials" },
-    { name: "News", href: "#news" },
     { name: "FAQ", href: "#faq" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (

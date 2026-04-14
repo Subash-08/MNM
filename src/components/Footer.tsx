@@ -16,7 +16,7 @@ export default function Footer() {
             </div>
             
             <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[#1a1a1a] leading-[1.1] mb-10 tracking-tight">
-              Let's Build Your Financial<br />Future.
+              Your Trusted Appliance<br />Care Partner.
             </h2>
             
             <div className="flex items-center bg-white rounded-full p-1.5 border border-gray-200 max-w-md mb-4 shadow-sm focus-within:ring-2 focus-within:ring-gray-200 transition-all">
@@ -34,7 +34,7 @@ export default function Footer() {
             </div>
             
             <p className="text-xs text-gray-500 max-w-sm leading-relaxed">
-              By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.
+              By subscribing you agree to our Privacy Policy and provide consent to receive updates from our company.
             </p>
           </div>
 
@@ -45,7 +45,7 @@ export default function Footer() {
             <div>
               <h3 className="text-base font-semibold text-[#1a1a1a] mb-6">Menu</h3>
               <ul className="space-y-4">
-                {["Home", "About us", "Products", "Solutions", "Pricing", "Customers"].map((item) => (
+                {["Home", "About Us", "Services", "Spare Parts", "Pricing", "Contact"].map((item) => (
                   <li key={item}>
                     <a href="#" className="text-sm text-gray-500 hover:text-[#1a1a1a] transition-colors">
                       {item}
@@ -59,7 +59,7 @@ export default function Footer() {
             <div>
               <h3 className="text-base font-semibold text-[#1a1a1a] mb-6">Info</h3>
               <ul className="space-y-4">
-                {["Style Guide", "Licensing", "Changelog"].map((item) => (
+                {["Warranty Policy", "Service Terms", "Privacy Policy", "Refund Policy", "FAQ"].map((item) => (
                   <li key={item}>
                     <a href="#" className="text-sm text-gray-500 hover:text-[#1a1a1a] transition-colors">
                       {item}
@@ -100,7 +100,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-300 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-600">
-            © 2026 Finora. All rights reserved.
+            © 2026 Finora Appliance Services. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-sm text-gray-600 hover:text-[#1a1a1a] underline underline-offset-4 transition-colors">Privacy Policy</a>

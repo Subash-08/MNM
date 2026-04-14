@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/sections/Hero";
 import Partners from "./components/sections/Partners";
+import AboutUs from "./components/sections/AboutUs";
 import WorkingProcess from "./components/sections/WorkingProcess";
 import HowItWorks from "./components/sections/HowItWorks";
 import Services from "./components/sections/Services";
@@ -13,6 +14,7 @@ import ContributionTiers from "./components/sections/ContributionTiers";
 import SocialProof from "./components/sections/SocialProof";
 import BlogNews from "./components/sections/BlogNews";
 import FAQ from "./components/sections/FAQ";
+import ContactCTA from "./components/sections/ContactCTA";
 import FinalCTA from "./components/sections/FinalCTA";
 import Footer from "./components/Footer";
 import RegistrationForm from "./components/RegistrationForm";
@@ -32,6 +34,7 @@ export default function App() {
       <main className="flex-grow">
         <Hero />
         <Partners />
+        <AboutUs />
         <WorkingProcess />
         <HowItWorks />
         <Services />
@@ -39,6 +42,7 @@ export default function App() {
         <SocialProof />
         <BlogNews />
         <FAQ />
+        <ContactCTA />
       </main>
 
       <Footer />
