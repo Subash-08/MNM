@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Play, Shield, Award, Landmark } from "lucide-react";
+import { Star, Shield, Award, Landmark, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -32,7 +31,7 @@ const testimonials = [
   }
 ];
 
-const contributors = Array.from({ length: 20 }).map((_, i) => ({
+const contributors = Array.from({ length: 5 }).map((_, i) => ({
   id: i,
   name: ["Divya", "Raj", "Karthik", "Meera", "Arun"][i % 5],
   image: `https://i.pravatar.cc/150?u=${i}`
@@ -40,93 +39,118 @@ const contributors = Array.from({ length: 20 }).map((_, i) => ({
 
 export default function SocialProof() {
   return (
-    <section id="testimonials" className="py-24 bg-secondary/30">
-      <div className="container px-4 mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Trust Multiplier</h2>
-          <p className="text-lg text-muted-foreground">
-            Join a growing community of 150+ local contributors who believe in our mission.
-          </p>
+    <section id="testimonials" className="py-24 bg-[#f8f9fa] overflow-hidden">
+      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+        {/* Header */}
+        <div className="flex flex-col items-center text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center gap-3 mb-6"
+          >
+            <div className="flex items-center">
+              <div className="w-6 h-[2px] bg-gray-300"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-800 -ml-1"></div>
+            </div>
+            <span className="text-sm font-medium text-gray-600 tracking-wide uppercase">Testimonials</span>
+          </motion.div>
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-5xl font-bold text-[#1a1a1a] leading-tight max-w-2xl"
+          >
+            Trusted by Investors Worldwide
+          </motion.h2>
         </div>
 
+        {/* Testimonials Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-20">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
+              className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 relative group flex flex-col"
             >
-              <Card className="overflow-hidden border-none shadow-xl bg-white h-full flex flex-col">
-                <div className="relative aspect-video group cursor-pointer">
-                  <img src={t.image} alt={t.name} className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" referrerPolicy="no-referrer" />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                      <Play className="w-6 h-6 text-white fill-white" />
-                    </div>
-                  </div>
-                  <div className="absolute bottom-3 left-3">
-                    <div className="bg-accent text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-widest">Video Testimonial</div>
-                  </div>
+              <div className="absolute top-8 right-8 text-gray-100 group-hover:text-[#ffe600]/20 transition-colors duration-300">
+                <Quote className="w-12 h-12 rotate-180" />
+              </div>
+              
+              <div className="flex gap-1 mb-6 relative z-10">
+                {[...Array(5)].map((_, idx) => (
+                  <Star key={idx} className="w-5 h-5 fill-[#ffe600] text-[#ffe600]" />
+                ))}
+              </div>
+              
+              <p className="text-gray-600 leading-relaxed mb-8 relative z-10 flex-grow">
+                "{t.quote}"
+              </p>
+              
+              <div className="flex items-center gap-4 pt-6 border-t border-gray-100 relative z-10">
+                <img src={t.image} alt={t.name} className="w-12 h-12 rounded-full object-cover" referrerPolicy="no-referrer" />
+                <div>
+                  <div className="font-bold text-[#1a1a1a]">{t.name}</div>
+                  <div className="text-sm text-gray-500">{t.location}</div>
                 </div>
-                <CardContent className="p-6 flex-1 flex flex-col">
-                  <p className="text-sm italic text-muted-foreground mb-6 flex-1">"{t.quote}"</p>
-                  <div className="flex items-center justify-between pt-4 border-t border-border">
-                    <div>
-                      <div className="font-bold">{t.name}, {t.location}</div>
-                      <div className="text-xs text-muted-foreground">Contributed {t.amount}</div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-accent font-bold">{t.return}</div>
-                      <div className="text-[10px] text-muted-foreground uppercase">Returned in {t.days} Days</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        <div className="bg-white rounded-3xl p-8 md:p-12 border border-border shadow-sm">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="text-2xl font-bold mb-4">Join Priya, Suresh, Divya and 150+ others</h3>
-              <div className="flex flex-wrap justify-center md:justify-start -space-x-3 mb-6">
+        {/* Trust Badges & Community */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="bg-white rounded-[2rem] p-8 md:p-12 border border-gray-100 shadow-sm"
+        >
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="flex-1 text-center lg:text-left">
+              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-6">Join Priya, Suresh, Divya and 150+ others</h3>
+              <div className="flex flex-wrap justify-center lg:justify-start -space-x-4 mb-6">
                 {contributors.map((c) => (
                   <img 
                     key={c.id} 
                     src={c.image} 
                     alt={c.name} 
-                    className="w-10 h-10 rounded-full border-2 border-white shadow-sm"
+                    className="w-12 h-12 rounded-full border-4 border-white shadow-sm"
                     referrerPolicy="no-referrer"
                   />
                 ))}
-                <div className="w-10 h-10 rounded-full border-2 border-white bg-secondary flex items-center justify-center text-[10px] font-bold text-primary shadow-sm">
+                <div className="w-12 h-12 rounded-full border-4 border-white bg-[#f8f9fa] flex items-center justify-center text-sm font-bold text-[#1a1a1a] shadow-sm">
                   +130
                 </div>
               </div>
-              <p className="text-muted-foreground">Our community is growing every day. Be part of the next 45-day growth cycle.</p>
+              <p className="text-gray-600">Our community is growing every day. Be part of the next 45-day growth cycle.</p>
             </div>
             
-            <div className="grid grid-cols-2 gap-4 w-full md:w-auto">
-              <div className="p-4 bg-secondary/50 rounded-2xl flex flex-col items-center text-center">
-                <Shield className="w-6 h-6 text-primary mb-2" />
-                <div className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Registered</div>
-                <div className="text-xs font-bold">GSTIN: 33AAAAA0000A1Z5</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full lg:w-auto">
+              <div className="p-6 bg-[#f8f9fa] rounded-2xl flex flex-col items-center text-center border border-gray-100 hover:border-[#ffe600] transition-colors">
+                <Shield className="w-8 h-8 text-[#1a1a1a] mb-3" />
+                <div className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1">Registered</div>
+                <div className="text-sm font-bold text-[#1a1a1a]">GSTIN Verified</div>
               </div>
-              <div className="p-4 bg-secondary/50 rounded-2xl flex flex-col items-center text-center">
-                <Award className="w-6 h-6 text-primary mb-2" />
-                <div className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Legal</div>
-                <div className="text-xs font-bold">MCA Registered LLP</div>
+              <div className="p-6 bg-[#f8f9fa] rounded-2xl flex flex-col items-center text-center border border-gray-100 hover:border-[#ffe600] transition-colors">
+                <Award className="w-8 h-8 text-[#1a1a1a] mb-3" />
+                <div className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1">Legal</div>
+                <div className="text-sm font-bold text-[#1a1a1a]">MCA Registered</div>
               </div>
-              <div className="p-4 bg-secondary/50 rounded-2xl flex flex-col items-center text-center col-span-2">
-                <Landmark className="w-6 h-6 text-primary mb-2" />
-                <div className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Security</div>
-                <div className="text-xs font-bold">Escrow Account (Funds Protected)</div>
+              <div className="p-6 bg-[#f8f9fa] rounded-2xl flex flex-col items-center text-center border border-gray-100 hover:border-[#ffe600] transition-colors">
+                <Landmark className="w-8 h-8 text-[#1a1a1a] mb-3" />
+                <div className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1">Security</div>
+                <div className="text-sm font-bold text-[#1a1a1a]">Escrow Protected</div>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

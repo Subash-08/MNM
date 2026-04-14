@@ -101,14 +101,14 @@ export default function Services() {
         </div>
 
         {/* Content Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative">
           {/* Left Image */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="lg:col-span-5 sticky top-24"
+            className="lg:col-span-5 lg:sticky lg:top-32 mb-10 lg:mb-0 z-10"
           >
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img 
@@ -126,13 +126,14 @@ export default function Services() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="lg:col-span-7 flex flex-col gap-6"
+            className="lg:col-span-7 flex flex-col gap-6 pb-12"
           >
             {services.map((service, index) => (
               <motion.div 
                 key={index} 
                 variants={itemVariants}
-                className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow group relative overflow-hidden"
+                className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all group relative overflow-hidden lg:sticky"
+                style={{ top: `calc(8rem + ${index * 2}rem)` }}
               >
                 <div className="flex justify-between items-start gap-4">
                   <div className="flex-1">
